@@ -42,5 +42,22 @@ public class PrimitiveTypes {
         long bigLongLiteralValue = 2_147_483_647_234L;
         // Without the L at the end of our number Java tells us that this number is too large to be an int.
         System.out.println(bigLongLiteralValue);
+
+        int myTotal = (myMinIntValue / 2);
+
+        // Casing
+        // Casting means to treat or convert a number from one type to another.
+
+        byte myNewByteValue = (byte) (myMinByteValue / 2);
+
+        short myNewShortValue = (short) (myMinShortValue / 2);
+
+        // Challenge
+
+        byte myExerciseByteValue = 10;
+        short myExerciseShortValue = 20;
+        int myExerciseIntValue = 50;
+        long myExerciseLongValue = 50000L + (10L * (myExerciseByteValue + myExerciseShortValue + myExerciseIntValue));
+        System.out.println("Exercise value = "+ myExerciseLongValue);
     }
 }
