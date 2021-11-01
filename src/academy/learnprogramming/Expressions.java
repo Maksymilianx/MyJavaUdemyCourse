@@ -38,5 +38,24 @@ public class Expressions {
 
         result -= 2;    // result = result - 2;
         System.out.println("10 - 2 = " + result);
+
+        // in order to execute more than one statement we need to add a code block: if (expression) { // statements }
+        // Always use a code block to avoid simple bugs in the future.
+        boolean isAlien = false;
+        if (isAlien == false) {
+            System.out.println("It is not an alien!");
+            System.out.println("And I am scared of aliens");
+        }
+
+        int topScore = 80;
+        if (topScore < 100) {
+            System.out.println("You got the high score!");
+        }
+
+        // double ampersand (&&) stands for "and"
+        int secondTopScore = 60;
+        if (topScore > secondTopScore && topScore < 100) {
+            System.out.println("Greater than second top score and less than 100");
+        }
     }
 }
