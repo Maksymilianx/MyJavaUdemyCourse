@@ -52,10 +52,15 @@ public class Expressions {
             System.out.println("You got the high score!");
         }
 
-        // double ampersand (&&) stands for "and"
+        // double ampersand (&&) stands for "AND" operator
         int secondTopScore = 60;
-        if (topScore > secondTopScore && topScore < 100) {
+        if ((topScore > secondTopScore) && (topScore < 100)) {
             System.out.println("Greater than second top score and less than 100");
+        }
+
+        // double pipe (||) stand for "OR" operator
+        if ((topScore > 90) || (secondTopScore <= 90)) {
+            System.out.println("Either or both of the conditions are true");
         }
     }
 }
