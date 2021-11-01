@@ -62,5 +62,24 @@ public class Expressions {
         if ((topScore > 90) || (secondTopScore <= 90)) {
             System.out.println("Either or both of the conditions are true");
         }
+
+        int newValue = 50;
+        if (newValue == 50) {
+            System.out.println("This is true");
+        }
+
+        // instead of: if (isCar == false) we use: if(!isCar)
+        boolean isCar = true;
+        if (!isCar) {
+            System.out.println("This is not supposed to happen");
+        }
+
+        // the ternary operator "?" is a shortcut to assigning one of two values to a variable depending on a given condition.
+        // It's a shortcut of the if-then-else statement.
+        isCar = true;
+        boolean wasCar = isCar ? true : false;
+        if (wasCar) {
+            System.out.println("wasCar is ture");
+        }
     }
 }
