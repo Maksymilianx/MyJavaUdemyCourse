@@ -76,10 +76,27 @@ public class Expressions {
 
         // the ternary operator "?" is a shortcut to assigning one of two values to a variable depending on a given condition.
         // It's a shortcut of the if-then-else statement.
-        isCar = true;
+        isCar = false;
         boolean wasCar = isCar ? true : false;
-        if (wasCar) {
-            System.out.println("wasCar is ture");
+        if (!wasCar) {
+            System.out.println("wasCar is false");
         }
+
+
+        // Operator challenge
+
+        double myDoubleVariable = 20.00d;
+        double mySecondDoubleVariable = 80.00d;
+        double sumOfDouble = (myDoubleVariable + mySecondDoubleVariable) * 100.00d;
+        System.out.println("sumOfDouble = " + sumOfDouble);
+        double remainder = sumOfDouble % 40.00d;
+        System.out.println("remainder = " + remainder);
+        boolean isNoRemainder = (remainder == 0) ? true : false;
+        System.out.println("ZeroRemainder = " + isNoRemainder);
+        // true if remainder is equal to 0, false if it is not
+        if (!isNoRemainder) {
+            System.out.println("Got some remainder");
+        }
+
     }
 }
