@@ -21,6 +21,22 @@ public class Expressions {
         result = result % 3;    // the remainder of (4 / 3), exactly like modulo in Python
         System.out.println("4 % 3 = " + result);
 
+        result++;    // result = result + 1 similar to (result += 1)
+        System.out.println("1 + 1 = " + result);
 
+        result--;   // 2 - 1 = 1
+        System.out.println("2 - 1 = " + result);
+
+        result += 2;    // result = result + 2;
+        System.out.println("1 + 2 = " + result);
+
+        result *= 10;   // result = result * 10;
+        System.out.println("3 * 10 = " + result);
+
+        result /= 3;    // result = result / 3;
+        System.out.println("30 / 3 = " + result);
+
+        result -= 2;    // result = result - 2;
+        System.out.println("10 - 2 = " + result);
     }
 }
