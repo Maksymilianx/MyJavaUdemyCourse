@@ -1,4 +1,4 @@
-package sectionNr4;
+package sectionNr4.Exercises;
 
 import java.util.stream.IntStream;
 

@@ -1,4 +1,4 @@
-package sectionNr4;
+package sectionNr4.Exercises;
 
 public class EqualSumChecker {
     public static boolean hasEqualSum(int x, int y, int z) {
