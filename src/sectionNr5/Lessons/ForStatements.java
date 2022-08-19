@@ -21,6 +21,21 @@ public class ForStatements {
                 }
             }
         }
+        System.out.println("###############################");
+        System.out.println("Sum 3 and 5 Challenge");
+        int sum = 0;
+        int countNumbers = 0;
+        for (long i=1; i<=1000; i++) {
+            if ((i % 3 == 0) && (i % 5 == 0)) {
+                sum += i;
+                countNumbers ++;
+                if (countNumbers == 5) {
+                    System.out.println("The sum of numbers is " + sum);
+                    System.out.println("End of loop");
+                    break;
+                }
+            }
+        }
     }
 
     public static boolean isPrime(int n) {
