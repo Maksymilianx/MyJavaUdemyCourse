@@ -15,8 +15,6 @@ public class ForStatements {
                     String.format("%.2f", calculateInterest(10000.0, i)));
         }
         System.out.println("#####################");
-
-        for (int )
     }
 
     public static boolean isPrime (int n) {
