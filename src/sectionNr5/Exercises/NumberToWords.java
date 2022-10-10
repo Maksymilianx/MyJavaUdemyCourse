@@ -2,12 +2,37 @@ package sectionNr5.Exercises;
 
 public class NumberToWords {
 
-    public static void numberToWords(int number) {
+    public static int reverse(int number) {
+        int reversed=0;
+        int workNumber = 0;
 
-        if (number < 1) System.out.println("Invalid Value");
-        else {
-            int remaining = number % 10;
-            switch (remaining) {
+        while (number != 0) {
+            workNumber = number % 10;
+            number /= 10;
+            reversed += workNumber;
+            if (number != 0) {
+                reversed *= 10;
+            }
+        }
+        return reversed;
+    }
+
+    public static void numberToWords(int number) {
+        if (number < 0) {
+            System.out.println("Invalid Value");
+        }
+        if (number==0){
+            System.out.println("Zero");
+        }
+        int numDigit=getDigitCount(number);
+        int revDigit=getDigitCount(reverse(number));
+        int zerosToPrint = numDigit-revDigit;
+        number = reverse(number);
+        int printNumber = 0;
+
+        while (number > 0) {
+            printNumber = number % 10;
+            switch (printNumber) {
                 case 0:
                     System.out.println("Zero");
                     break;
@@ -39,8 +64,29 @@ public class NumberToWords {
                     System.out.println("Nine");
                     break;
             }
-            int withoutLastNr = number - remaining;
+            number/=10;
 
         }
+
+
+
+        for (int i =0;i<zerosToPrint;i++) {
+            System.out.println("Zero");
+        }
+
+    }
+
+    public static int getDigitCount(int number){
+        if (number<0){return -1;}
+        if (number==0){return 1;}
+        int digitCount=0;
+        for (int i=0;number>0;i++){
+            number/=10;
+            digitCount++;
+        }return digitCount;
+    }
+
+    public static void main(String[] args) {
+        numberToWords(78000);
     }
 }
