@@ -12,12 +12,15 @@ public class LargestPrime {
         if (number <= 1) {
             return -1;
         }
-//        int primeNumber = 0;
-        for (i = 2; i <= number; i++) {
-            if (i % 2 == 0) {
-                int primeNumber = i;
+        for (int i = 2; number > i; i++) {
+            while (number > i && number % i == 0) {
+                number = number / i;
             }
-
         }
+        return number;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(getLargestPrime(217));
     }
 }
