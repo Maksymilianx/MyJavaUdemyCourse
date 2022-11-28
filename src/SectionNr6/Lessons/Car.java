@@ -16,7 +16,7 @@ public class Car {
     public void setModel(String model) {
 
         String validModel = model.toLowerCase();
-        if (validModel.equals("500") || validModel.equals("laferarri")) {
+        if (validModel.equals("panda") || validModel.equals("laferarri")) {
             this.model = model;
         } else {
             this.model = "Unknown";
