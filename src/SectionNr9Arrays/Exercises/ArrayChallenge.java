@@ -1,7 +1,6 @@
-package Arrays.Exercises;
+package SectionNr9Arrays.Exercises;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class ArrayChallenge {
 
