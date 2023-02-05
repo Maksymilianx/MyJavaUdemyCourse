@@ -4,59 +4,64 @@ import java.util.*;
 
 public class ArrayListChallengePt1 {
 
-    public Scanner scanner = new Scanner(System.in);
-    public List<String> tempList = new ArrayList<>();
+    private static Scanner scanner = new Scanner(System.in);
 
-    public void groceryList() {
-        boolean value = true;
+    private static void printActions() {
 
-        while (value) {
-            String text = """
-                    Available actions:\s
-                    0 - to shutdown\s
-                    1 - to add item(s) to list (comma delimited list)\s
-                    2 - to remove any items (comma delimited list)\s
-                    Enter a number for which action you want to do:\s""";
-            System.out.print(text);
-            int choice = Integer.parseInt(this.scanner.nextLine());
-            if (choice == 0) {
-                System.out.println("Shutting down");
-                System.out.println("Final list: \n" + tempList);
-                value = false;
-            } else if (choice == 1) {
-                System.out.println("Add item(s) [separate items by comma]:");
-                addOrRemove(1);
-                Collections.sort(tempList);
-                System.out.println(tempList);
-            } else if (choice == 2) {
-                System.out.println("Remove item(s) [separate items by comma]:");
-                addOrRemove(2);
+        String text = """
+                Available actions:\s
+                0 - to shutdown\s
+                1 - to add item(s) to list (comma delimited list)\s
+                2 - to remove any items (comma delimited list)\s
+                Enter a number for which action you want to do:\s""";
+
+        System.out.println(text);
+    }
+
+    private static void addItems(ArrayList<String> groceries) {
+        System.out.println("Add item(s) [separate items by comma]:");
+        String[] items = scanner.nextLine().split(",");
+
+        for (String i: items) {
+            String trimmed = i.trim();
+            if (!groceries.contains(trimmed)) {
+                groceries.add(trimmed);
             }
         }
     }
+    private static void removeItems(ArrayList<String> groceries) {
+        System.out.println("Remove item(s) [separate items by comma]:");
+        String[] items = scanner.nextLine().split(",");
 
-    public static void addOrRemove(int choice) {
-        String choices = scanner.nextLine();
-        String[] choicesArr = choices.split(",");
-        List<String> choicesList = List.of(choicesArr);
-        for (String c: choicesList) {
-            if (choice == 1) {
-                if (tempList.contains(c)) {
-                    System.out.println("List already contains product: " + c + " - skipping");
-                } else {
-                    tempList.add(c.trim());
-                }
-            } else {
-                if (tempList.contains(c)) {
-                    tempList.remove(c);
-                } else {
-                    System.out.println("There is no product: " + c + " in the list - skipping");
-                }
-            }
+        for (String i: items) {
+            String trimmed = i.trim();
+            groceries.remove(trimmed);
         }
     }
 
     public static void main(String[] args) {
-
+        boolean value = true;
+        ArrayList<String> groceries = new ArrayList<>();
+        while (value) {
+            boolean exc = false;
+            while (!exc) {
+                try {
+                    printActions();
+                    int choose = Integer.parseInt(scanner.nextLine());
+                    if (choose == 1) {
+                        addItems(groceries);
+                    } else if (choose == 2) {
+                        removeItems(groceries);
+                    } else {
+                        exc = true;
+                        value = false;
+                    }
+                    System.out.println(groceries);
+                } catch (NumberFormatException e) {
+                    System.out.println("Only numbers 0,1,2 allowed");
+                    exc = true;
+                }
+            }
+        }
     }
 }
