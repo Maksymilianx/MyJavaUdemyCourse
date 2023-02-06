@@ -43,24 +43,19 @@ public class ArrayListChallengePt1 {
         boolean value = true;
         ArrayList<String> groceries = new ArrayList<>();
         while (value) {
-            boolean exc = false;
-            while (!exc) {
-                try {
-                    printActions();
-                    int choose = Integer.parseInt(scanner.nextLine());
-                    if (choose == 1) {
-                        addItems(groceries);
-                    } else if (choose == 2) {
-                        removeItems(groceries);
-                    } else {
-                        exc = true;
-                        value = false;
-                    }
-                    System.out.println(groceries);
-                } catch (NumberFormatException e) {
-                    System.out.println("Only numbers 0,1,2 allowed");
-                    exc = true;
+            try {
+                printActions();
+                int choose = Integer.parseInt(scanner.nextLine());
+                if (choose == 1) {
+                    addItems(groceries);
+                } else if (choose == 2) {
+                    removeItems(groceries);
+                } else {
+                    value = false;
                 }
+                System.out.println(groceries);
+            } catch (NumberFormatException e) {
+                System.out.println("Only numbers 0,1,2 allowed");
             }
         }
     }
