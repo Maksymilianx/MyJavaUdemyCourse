@@ -15,10 +15,12 @@ public class LinkedListLesson {
         addMoreElements(placesToVisit);
         System.out.println(placesToVisit);
 
-        removeElements(placesToVisit);
-        System.out.println(placesToVisit);
+//        removeElements(placesToVisit);
+//        System.out.println(placesToVisit);
+//
+//        printItinerary3(placesToVisit);
 
-        printIninerary3(placesToVisit);
+        testIterator(placesToVisit);
     }
 
     private static void addMoreElements(LinkedList<String> list) {
@@ -87,7 +89,7 @@ public class LinkedListLesson {
         System.out.println("Trip ends at " + list.getLast());
     }
 
-    public static void printIninerary3(LinkedList<String> list) {
+    public static void printItinerary3(LinkedList<String> list) {
         System.out.println("Trip starts at " + list.getFirst());
         String previousTown = list.getFirst();
         ListIterator<String> iterator = list.listIterator(1);
@@ -96,7 +98,30 @@ public class LinkedListLesson {
             System.out.println("--> From: " + previousTown + " to " + town);
             previousTown = town;
         }
-
         System.out.println("Trip ends at " + list.getLast());
+    }
+
+    private static void testIterator(LinkedList<String> list) {
+
+        var iterator = list.listIterator();
+        while (iterator.hasNext()) {
+            if (iterator.next().equals("Brisbane")) {
+                iterator.add("Lake Wivenhoe");
+            }
+        }
+        while (iterator.hasPrevious()) {
+            System.out.println(iterator.previous());
+        }
+
+        System.out.println(list);
+
+        var iterator2 = list.listIterator(3);
+        System.out.println(iterator2.previous());
+        String first = iterator.next(); // Alice Springs returned, cursor moved to cursor position 1
+        System.out.println(first);
+        String second = iterator.next(); // Brisbane returned, cursor moved to cursor position 2
+        System.out.println(second);
+        String reversed = iterator.previous(); // Brisbane returned, cursor moved to cursor position 1
+        System.out.println(reversed);
     }
 }
